@@ -34,6 +34,8 @@ class DashboardController extends Controller
                     ['countByFormation' => $countByFormation, 'candidats_masculins' => $candidats_masculins, 'candidats_feminins' => $candidats_feminins, 'repartition_formations' => $repartition_formations,'ages'=>$ages,'formationsEnCours'=>$formationsEnCours,'formationsEnAttente'=>$formationsEnAttente],
                     ['countByReferentiel' => $countByReferentiel],
                     []);
+
+                    
         
     }
 

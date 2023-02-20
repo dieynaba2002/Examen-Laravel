@@ -49,11 +49,19 @@ class LoginController extends Controller
 
         if (Auth::attempt($credentials)) {
             $request->session()->regenerate();
-            return redirect()->intended('candidats/create');
+            
+            //return redirect()->intended('candidats/create');
+            if (Auth::user()->isAdmin()) {
+                return redirect()->route('dashboard');
+            } else {
+                return redirect()->route('candidats.create');
+            }
         }
 
         return back()->withErrors([
             'email' => 'Les identifiants saisis ne correspondent pas à nos enregistrements.',
         ]);
+
+        
     }
 }

@@ -19,7 +19,7 @@
                 aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <div class="collapse navbar-collapse  " id="navbarSupportedContent">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                     <li class="nav-item">
                         <a class="nav-link active" aria-current="page" href="{{route('candidats.store')}}">Candidat</a>
@@ -55,6 +55,12 @@
                             <li><a class="dropdown-item" href="#">Something else here</a></li>
                         </ul>
                     </li>
+                    <form action="{{ route('logout') }}" method="POST">
+                    @csrf
+                        <button type="submit" class="btn btn-danger offset-10 mr-5">Déconnexion</button>
+                    </form>
+
+                    
 
             </div>
         </div>
