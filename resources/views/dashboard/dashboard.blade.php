@@ -178,8 +178,8 @@
                             </div>
                         </div>
                     </div>
-                    <canvas id="chart"></canvas>
-
+                    <h3 style="text-align: center;">Graphe representant la tranche d'age</h3>
+                    <canvas id="chart"></canvas>                   
                     <script>
                     var ages = <?php echo $ages; ?>;
                     var labels = [], data = [];
@@ -212,7 +212,7 @@
                         }
                     });
                     </script>
-                    <h3 style="text-align: center;">Graphe representant la tranche d'age</h3>
+                    <h3 class="text-center">Statistique des formations en cours et en attente</h3>
                     <div>
                         <canvas id="formationsChart"></canvas>
                     </div>
@@ -238,7 +238,7 @@
                             }
                         });
                     </script>
-                    <h3 class="text-center">Statistique des formations en cours et en attente</h3>
+                    
                 </div>
             </div>
         </div>

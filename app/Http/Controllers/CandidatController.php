@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Candidat;
+use App\Models\Formation;
 use Illuminate\Http\Request;
 
 class CandidatController extends Controller
@@ -25,7 +26,9 @@ class CandidatController extends Controller
      */
     public function create()
     {
-        return view('candidats.create');
+        $formations = Formation::all();
+       
+        return view('candidats.create',['formations'=>$formations]);
     }
 
     /**
@@ -37,6 +40,7 @@ class CandidatController extends Controller
      
     public function store(Request $request)
     {
+        $candidats = Candidat::all();
         $request->validate([
             'nom' => 'required',
             'prenom' => 'required',
@@ -47,7 +51,10 @@ class CandidatController extends Controller
         ]);
         
         Candidat::create($request->post());
-
+        $candidats = Candidat::where('nom', $request->input('nom'))->first();
+        $candidat_id = $candidats->id;
+        $candidats = Candidat::find($candidat_id);
+        $candidats->formations()->attach($request->input('formation_id'));
         return redirect()->route('candidats.index')->with('success','Candidat cree avec succes.');
     }
 

@@ -45,10 +45,20 @@
             </div>
             <label for="exampleFormControlInput6" class="form-label">Sexe</label>
             <div class="mb-3">    
-            <select class="form-control" aria-label="Default select example" name="sexe">
+                <select class="form-control" aria-label="Default select example" name="sexe">
                     <option selected>Ouvrir le menu de sélection</option>
                     <option value="masculin">masculin</option>
                     <option value="feminin">feminin</option>
+                </select>
+            </div>
+            <label for="exampleFormControlInput7" class="form-label">Formation</label>
+            <div class="mb-3">    
+                <select class="form-control" aria-label="Default select example" name="formation_id">
+                    <option selected>Ouvrir le menu de sélection</option>
+                    @foreach ($formations as $formation)
+                        <option value="{{ $formation->id }}">{{ $formation->nom }}</option>
+                    @endforeach 
+            </select>
                 </select>
             </div>
             <div class="col-12">
